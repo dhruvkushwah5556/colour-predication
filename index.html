@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Color Prediction Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f0f0f0;
+      margin-top: 100px;
+    }
+    h1 {
+      color: #333;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 16px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .red-btn {
+      background-color: #e74c3c;
+      color: white;
+    }
+    .green-btn {
+      background-color: #2ecc71;
+      color: white;
+    }
+    #result {
+      margin-top: 30px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎯 Color Prediction Game</h1>
+  <p>Choose a color and see if you win!</p>
+  <button class="red-btn" onclick="predict('Red')">Red</button>
+  <button class="green-btn" onclick="predict('Green')">Green</button>
+  <div id="result"></div>
+
+  <script>
+    function predict(userChoice) {
+      const options = ['Red', 'Green'];
+      const systemChoice = options[Math.floor(Math.random() * options.length)];
+
+      const resultText =
+        userChoice === systemChoice
+          ? `🎉 You chose ${userChoice}. System chose ${systemChoice}. You WIN!`
+          : `😞 You chose ${userChoice}. System chose ${systemChoice}. Try again!`;
+
+      document.getElementById('result').innerText = resultText;
+    }
+  </script>
+</body>
+</html>
